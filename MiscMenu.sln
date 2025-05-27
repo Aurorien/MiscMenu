@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiscMenu.Program", "MiscMen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiscMenu.Helpers", "MiscMenu.Helpers\MiscMenu.Helpers.csproj", "{01AA891E-3755-4A90-AAD0-89AC43C1BE56}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiscMenu.Abstractions", "MiscMenu.Abstractions\MiscMenu.Abstractions.csproj", "{2CEE7939-B2C9-4ED8-A5B5-B81C1059896A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{01AA891E-3755-4A90-AAD0-89AC43C1BE56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01AA891E-3755-4A90-AAD0-89AC43C1BE56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01AA891E-3755-4A90-AAD0-89AC43C1BE56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CEE7939-B2C9-4ED8-A5B5-B81C1059896A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CEE7939-B2C9-4ED8-A5B5-B81C1059896A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CEE7939-B2C9-4ED8-A5B5-B81C1059896A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CEE7939-B2C9-4ED8-A5B5-B81C1059896A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
