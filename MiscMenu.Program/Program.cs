@@ -154,8 +154,8 @@ namespace MiscMenu
                 totalPrice += GetPriceForAge(ageInput);
 
             }
-            _ui.WriteLine($"\nAntal personer i gruppen: {groupSize}\n");
-            _ui.WriteLine($"\nTotalpris för gruppbiljetten: {totalPrice} kr");
+            _ui.WriteLine($"\n\nAntal personer i gruppen: {groupSize}");
+            _ui.WriteLine($"Totalpris för gruppbiljetten: {totalPrice} kr");
             _ui.WriteLine("\n\nTryck Enter för att återgå till menyn.");
             _ui.GetInput();
 
