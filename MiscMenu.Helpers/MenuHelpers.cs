@@ -4,6 +4,7 @@
     {
         // Huvudmeny
         public const string YouthOrRetired = "1";
+        public const string Repeat = "2";
         public const string Close = "0";
 
         // Ungdom eller pensionär

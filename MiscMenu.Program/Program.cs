@@ -1,5 +1,6 @@
 ﻿using MiscMenu.Abstractions;
 using MiscMenu.Helpers;
+using System.Text;
 
 namespace MiscMenu
 {
@@ -34,6 +35,9 @@ namespace MiscMenu
                     case MenuHelpers.YouthOrRetired:
                         TicketPrice();
                         break;
+                    case MenuHelpers.Repeat:
+                        Repeat();
+                        break;
                     case MenuHelpers.Close:
                         CloseProgram();
                         break;
@@ -47,6 +51,27 @@ namespace MiscMenu
 
         }
 
+        private static void Repeat()
+        {
+            _ui.Clear();
+
+            _ui.WriteLine("Få din input upprepad 10 gånger!\n");
+            _ui.Write("Skriv in en text som du vill upprepa: ");
+            string input = _ui.GetInput();
+            var sb = new StringBuilder(); // Using Stringbuilder for optimal performance (reducing _ui.Write calls and consuming less memory by using mutable object)
+
+            for (int i = 0; i < 10; i++)
+            {
+                sb.Append($"{i + 1}. {input}");
+                if (i < 9) sb.Append(", ");
+            }
+
+            _ui.Write(sb.ToString());
+
+            _ui.WriteLine("\n\nTryck Enter för att återgå till menyn.");
+            _ui.GetInput();
+        }
+
         private static int GetPriceForAge(int age)
         {
             if (age < _childAgeLimit) return _childPrice;
@@ -54,7 +79,7 @@ namespace MiscMenu
             return _adultPrice;
         }
 
-        // Alternative solution
+        // Alternative solution for CalcSingleTicketPrice
         //private static (string category, int price) GetPricingInfo(int age)
         //{
         //    if (age < _childAgeLimit) return ("Ungdomspris", _childPrice);
@@ -86,6 +111,7 @@ namespace MiscMenu
         private static void ShowMainMenu()
         {
             _ui.WriteLine($"{MenuHelpers.YouthOrRetired}. Biobiljetter - Ungdom eller pensionär");
+            _ui.WriteLine($"{MenuHelpers.Repeat}. Få din input upprepad 10 gånger");
         }
 
 
@@ -96,7 +122,6 @@ namespace MiscMenu
             {
                 _ui.Clear();
 
-                UIHeader();
                 _ui.WriteLine("Biorymden --- Prisberäkning för biobiljetter\n");
                 UIMenuWrapper(ShowYouthOrRetiredMenu);
 
@@ -199,7 +224,7 @@ namespace MiscMenu
             } while (true);
 
 
-            // Alternative solution
+            // Alternative solution for CalcSingleTicketPrice
             //int ageInput = Utils.AskForInt("Ange ålder i heltal: ", _ui);
             //var (category, price) = GetPricingInfo(ageInput);
             //_ui.WriteLine($"\n{category}: {price} kr");
