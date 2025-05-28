@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36121.58
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiscMenu.Program", "MiscMenu\MiscMenu.Program.csproj", "{8560C639-A038-4F85-B3D3-96BF9F2A7AB8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiscMenu.Program", "MiscMenu.Program\MiscMenu.Program.csproj", "{8560C639-A038-4F85-B3D3-96BF9F2A7AB8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiscMenu.Helpers", "MiscMenu.Helpers\MiscMenu.Helpers.csproj", "{01AA891E-3755-4A90-AAD0-89AC43C1BE56}"
 EndProject

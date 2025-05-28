@@ -7,6 +7,14 @@ namespace MiscMenu
     {
         private static IConsolUI _ui = new ConsolUI();
 
+        private const int _childAgeLimit = 18;
+        private const int _seniorAgeLimit = 65;
+        private const int _childPrice = 80;
+        private const int _seniorPrice = 90;
+        private const int _adultPrice = 120;
+
+
+
         static void Main(string[] args)
         {
 
@@ -38,6 +46,21 @@ namespace MiscMenu
             while (!isValid);
 
         }
+
+        private static int GetPriceForAge(int age)
+        {
+            if (age < _childAgeLimit) return _childPrice;
+            if (age >= _seniorAgeLimit) return _seniorPrice;
+            return _adultPrice;
+        }
+
+        // Alternative solution
+        //private static (string category, int price) GetPricingInfo(int age)
+        //{
+        //    if (age < _childAgeLimit) return ("Ungdomspris", _childPrice);
+        //    if (age >= _seniorAgeLimit) return ("Pensionärspris", _seniorPrice);
+        //    return ("Standardpris", _adultPrice);
+        //}
 
         private static void InvalidMenuInput()
         {
@@ -116,12 +139,73 @@ namespace MiscMenu
 
         private static void CalcGroupTicketPrice()
         {
-            throw new NotImplementedException();
+
+            _ui.Clear();
+            _ui.WriteLine("Biorymden --- Gruppbiljett prisberäkning\n\n");
+            _ui.WriteLine("För att beräkna priset på en gruppbiljett, ange antalet personer i gruppen.\n");
+            int groupSize = Utils.AskForInt("Antal personer: ", _ui);
+            int totalPrice = 0;
+
+            for (int i = 0; i < groupSize; i++)
+            {
+                _ui.WriteLine($"\nPerson {i + 1}");
+                int ageInput = Utils.AskForInt("Ange ålder i heltal: ", _ui);
+
+                totalPrice += GetPriceForAge(ageInput);
+
+            }
+            _ui.WriteLine($"\nAntal personer i gruppen: {groupSize}\n");
+            _ui.WriteLine($"\nTotalpris för gruppbiljetten: {totalPrice} kr");
+            _ui.WriteLine("\n\nTryck Enter för att återgå till menyn.");
+            _ui.GetInput();
+
         }
 
         private static void CalcSingleTicketPrice()
         {
-            throw new NotImplementedException();
+            _ui.Clear();
+            _ui.WriteLine("Biorymden --- Enkelbiljett prisberäkning\n\n");
+            _ui.WriteLine("För att beräkna priset på en enkelbiljett, ange ålder på besökaren.\n");
+
+            do
+            {
+                _ui.WriteLine("Ange ålder i heltal: ");
+                string ageInput = _ui.GetInput();
+
+
+                if (int.TryParse(ageInput, out int age))
+                {
+                    if (age < _childAgeLimit)
+                    {
+                        _ui.WriteLine($"\nUngdomspris: {_childPrice} kr");
+                    }
+
+                    else if (age >= _seniorAgeLimit)
+                    {
+                        _ui.WriteLine($"\nPensionärspris: {_seniorPrice} kr");
+                    }
+
+                    else
+                    {
+                        _ui.WriteLine($"\nStandardpris: {_adultPrice} kr");
+                    }
+                    break;
+                }
+                else
+                {
+                    _ui.WriteLine($"Ogiltig inmatning. Du behöver skriva ett positivt heltal. Försök igen.");
+                }
+
+            } while (true);
+
+
+            // Alternative solution
+            //int ageInput = Utils.AskForInt("Ange ålder i heltal: ", _ui);
+            //var (category, price) = GetPricingInfo(ageInput);
+            //_ui.WriteLine($"\n{category}: {price} kr");
+
+            _ui.WriteLine("\n\nTryck Enter för att återgå till menyn.");
+            _ui.GetInput();
         }
     }
 }

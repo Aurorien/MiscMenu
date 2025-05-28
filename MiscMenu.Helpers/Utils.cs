@@ -1,0 +1,51 @@
+﻿using MiscMenu.Abstractions;
+
+namespace MiscMenu.Helpers
+{
+    public static class Utils
+
+    {
+        public static string AskForString(string prompt, IConsolUI ui)
+        {
+            bool success = false;
+            string answer;
+
+            do
+            {
+                ui.Write($"{prompt}: ");
+                answer = ui.GetInput();
+
+                if (string.IsNullOrWhiteSpace(answer))
+                {
+                    ui.WriteLine($"Ogiltig inmatning. Du behöver skriva {prompt}. Försök igen.");
+                }
+                else
+                {
+                    success = true;
+                }
+
+
+            } while (!success);
+
+            return answer;
+        }
+
+        public static int AskForInt(string prompt, IConsolUI ui)
+        {
+            do
+            {
+                string input = AskForString(prompt, ui);
+
+                if (int.TryParse(input, out int result))
+                {
+                    return result;
+                }
+                else
+                {
+                    ui.WriteLine($"Ogiltig inmatning. Du behöver skriva ett positivt heltal. Försök igen.");
+                }
+
+            } while (true);
+        }
+    }
+}

@@ -43,6 +43,13 @@
   <ItemGroup>
     <Compile Include="MenuHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MiscMenu.Abstractions\MiscMenu.Abstractions.csproj">
+      <Project>{2CEE7939-B2C9-4ED8-A5B5-B81C1059896A}</Project>
+      <Name>MiscMenu.Abstractions</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
