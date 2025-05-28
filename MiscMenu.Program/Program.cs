@@ -38,6 +38,9 @@ namespace MiscMenu
                     case MenuHelpers.Repeat:
                         Repeat();
                         break;
+                    case MenuHelpers.ThirdWord:
+                        ThirdWord();
+                        break;
                     case MenuHelpers.Close:
                         CloseProgram();
                         break;
@@ -48,6 +51,34 @@ namespace MiscMenu
 
             }
             while (!isValid);
+
+        }
+
+        private static void ThirdWord()
+        {
+            _ui.Clear();
+
+            _ui.WriteLine("Vi visar tredje ordet i en mening åt dig.");
+
+
+            do
+            {
+                string sentence = Utils.AskForString("\nSkriv in meingen på minst tre ord", _ui);
+                var words = sentence.Split(' ');
+
+                if (words.Length < 3)
+                {
+                    _ui.WriteLine("Du behöver skriva in minst tre ord. Försök igen.");
+                }
+                else
+                {
+                    _ui.WriteLine($"\n\nTredje ordet i meningen är: {words[2]}");
+                    break;
+                }
+            } while (true);
+
+            _ui.WriteLine("\n\nTryck Enter för att återgå till menyn.");
+            _ui.GetInput();
 
         }
 
@@ -112,6 +143,8 @@ namespace MiscMenu
         {
             _ui.WriteLine($"{MenuHelpers.YouthOrRetired}. Biobiljetter - Ungdom eller pensionär");
             _ui.WriteLine($"{MenuHelpers.Repeat}. Få din input upprepad 10 gånger");
+            _ui.WriteLine($"{MenuHelpers.ThirdWord}. Vi visar det tredje ordet i en mening");
+
         }
 
 
