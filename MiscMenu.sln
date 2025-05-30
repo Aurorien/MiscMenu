@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiscMenu.Helpers", "MiscMen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiscMenu.Abstractions", "MiscMenu.Abstractions\MiscMenu.Abstractions.csproj", "{2CEE7939-B2C9-4ED8-A5B5-B81C1059896A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiscMenu.TicketService", "MiscMenu.TicketService\MiscMenu.TicketService.csproj", "{A29BB930-9EC2-4BB7-A6D5-96BB7753F24F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiscMenu.TextService", "MiscMenu.TextService\MiscMenu.TextService.csproj", "{C8AC3993-741E-4CFC-92B1-784739554892}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{2CEE7939-B2C9-4ED8-A5B5-B81C1059896A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CEE7939-B2C9-4ED8-A5B5-B81C1059896A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CEE7939-B2C9-4ED8-A5B5-B81C1059896A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A29BB930-9EC2-4BB7-A6D5-96BB7753F24F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A29BB930-9EC2-4BB7-A6D5-96BB7753F24F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A29BB930-9EC2-4BB7-A6D5-96BB7753F24F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A29BB930-9EC2-4BB7-A6D5-96BB7753F24F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8AC3993-741E-4CFC-92B1-784739554892}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8AC3993-741E-4CFC-92B1-784739554892}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8AC3993-741E-4CFC-92B1-784739554892}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8AC3993-741E-4CFC-92B1-784739554892}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -17,7 +17,7 @@ namespace MiscMenu.Helpers
 
                 if (string.IsNullOrWhiteSpace(answer))
                 {
-                    ui.WriteLine($"Ogiltig inmatning. Du behöver skriva {prompt}. Försök igen.");
+                    ui.WriteLine($"Ogiltig inmatning. Inmatningen godtas inte tom eller med endast blanksteg. Försök igen.");
                 }
                 else
                 {

@@ -8,7 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MiscMenu.Abstractions\MiscMenu.Abstractions.csproj" />
     <ProjectReference Include="..\MiscMenu.Helpers\MiscMenu.Helpers.csproj" />
+    <ProjectReference Include="..\MiscMenu.TextService\MiscMenu.TextService.csproj" />
+    <ProjectReference Include="..\MiscMenu.TicketService\MiscMenu.TicketService.csproj" />
   </ItemGroup>
 
 </Project>
