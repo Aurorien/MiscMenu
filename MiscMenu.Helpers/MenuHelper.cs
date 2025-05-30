@@ -1,6 +1,6 @@
 ﻿namespace MiscMenu.Helpers
 {
-    public static class MenuHelpers
+    public static class MenuHelper
     {
         // Huvudmeny
         public const string YouthOrRetired = "1";

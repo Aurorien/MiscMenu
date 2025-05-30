@@ -6,7 +6,7 @@ namespace MiscMenu.Program
 {
     internal class Program
     {
-        private static readonly IConsolUI _ui = new ConsolUI();
+        private static readonly IConsoleUI _ui = new ConsoleUI();
         private static readonly CinemaTickets _ticketService = new(_ui);
         private static readonly TextMethods _textService = new(_ui);
 

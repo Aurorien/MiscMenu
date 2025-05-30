@@ -2,10 +2,10 @@
 
 namespace MiscMenu.Helpers
 {
-    public static class Utils
+    public static class Util
 
     {
-        public static string AskForString(string prompt, IConsolUI ui)
+        public static string AskForString(string prompt, IConsoleUI ui)
         {
             bool success = false;
             string answer;
@@ -30,7 +30,7 @@ namespace MiscMenu.Helpers
             return answer;
         }
 
-        public static int AskForInt(string prompt, IConsolUI ui)
+        public static int AskForInt(string prompt, IConsoleUI ui)
         {
             do
             {

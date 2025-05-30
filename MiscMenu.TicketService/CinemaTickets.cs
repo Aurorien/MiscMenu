@@ -5,9 +5,9 @@ namespace MiscMenu.TicketService
 {
     public class CinemaTickets
     {
-        private readonly IConsolUI _ui;
+        private readonly IConsoleUI _ui;
 
-        public CinemaTickets(IConsolUI ui)
+        public CinemaTickets(IConsoleUI ui)
         {
             this._ui = ui;
         }
@@ -25,25 +25,25 @@ namespace MiscMenu.TicketService
                 _ui.Clear();
 
                 _ui.WriteLine("Biorymden --- Prisberäkning för biobiljetter\n");
-                UIHelpers.UIMenuWrapper(ShowYouthOrRetiredMenu, _ui);
+                UIHelper.UIMenuWrapper(ShowYouthOrRetiredMenu, _ui);
 
                 string input = _ui.GetInput();
 
                 switch (input)
                 {
-                    case MenuHelpers.SingleTicket:
+                    case MenuHelper.SingleTicket:
                         CalcSingleTicketPrice();
                         break;
-                    case MenuHelpers.GroupTicket:
+                    case MenuHelper.GroupTicket:
                         CalcGroupTicketPrice();
                         break;
-                    case MenuHelpers.ReturnToMainMenu:
+                    case MenuHelper.ReturnToMainMenu:
                         return;
-                    case MenuHelpers.Close:
-                        UIHelpers.CloseProgram(_ui);
+                    case MenuHelper.Close:
+                        UIHelper.CloseProgram(_ui);
                         return;
                     default:
-                        UIHelpers.InvalidMenuInput(_ui);
+                        UIHelper.InvalidMenuInput(_ui);
                         break;
                 }
 
@@ -53,9 +53,9 @@ namespace MiscMenu.TicketService
 
         private void ShowYouthOrRetiredMenu()
         {
-            _ui.WriteLine($"{MenuHelpers.SingleTicket}. Beräkna pris för enkelbiljett");
-            _ui.WriteLine($"{MenuHelpers.GroupTicket}. Beräkna pris för gruppbiljett");
-            _ui.WriteLine($"{MenuHelpers.ReturnToMainMenu}. Återgå till huvudmenyn");
+            _ui.WriteLine($"{MenuHelper.SingleTicket}. Beräkna pris för enkelbiljett");
+            _ui.WriteLine($"{MenuHelper.GroupTicket}. Beräkna pris för gruppbiljett");
+            _ui.WriteLine($"{MenuHelper.ReturnToMainMenu}. Återgå till huvudmenyn");
         }
 
         private static (string category, int price) GetPricingInfo(int age)
@@ -71,11 +71,11 @@ namespace MiscMenu.TicketService
             _ui.WriteLine("Biorymden --- Enkelbiljett prisberäkning\n\n");
             _ui.WriteLine("För att beräkna priset på en enkelbiljett, ange ålder på besökaren.\n");
 
-            int ageInput = Utils.AskForInt("Ange ålder i heltal: ", _ui);
+            int ageInput = Util.AskForInt("Ange ålder i heltal: ", _ui);
             var (category, price) = GetPricingInfo(ageInput);
             _ui.WriteLine($"\n{category}: {price} kr");
 
-            UIHelpers.ReturnToMenu(_ui);
+            UIHelper.ReturnToMenu(_ui);
         }
 
         private void CalcGroupTicketPrice()
@@ -83,13 +83,13 @@ namespace MiscMenu.TicketService
             _ui.Clear();
             _ui.WriteLine("Biorymden --- Gruppbiljett prisberäkning\n\n");
             _ui.WriteLine("För att beräkna priset på en gruppbiljett, ange antalet personer i gruppen.\n");
-            int groupSize = Utils.AskForInt("Antal personer", _ui);
+            int groupSize = Util.AskForInt("Antal personer", _ui);
             int totalPrice = 0;
 
             for (int i = 0; i < groupSize; i++)
             {
                 _ui.WriteLine($"\nPerson {i + 1}");
-                int ageInput = Utils.AskForInt("Ange ålder i heltal", _ui);
+                int ageInput = Util.AskForInt("Ange ålder i heltal", _ui);
                 var (_, price) = GetPricingInfo(ageInput);
 
                 totalPrice += price;
@@ -97,7 +97,7 @@ namespace MiscMenu.TicketService
 
             _ui.WriteLine($"\n\nAntal personer i gruppen: {groupSize}");
             _ui.WriteLine($"Totalpris för gruppbiljetten: {totalPrice} kr");
-            UIHelpers.ReturnToMenu(_ui);
+            UIHelper.ReturnToMenu(_ui);
         }
     }
 }

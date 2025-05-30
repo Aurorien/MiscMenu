@@ -1,6 +1,6 @@
 ﻿namespace MiscMenu.Abstractions
 {
-    public interface IConsolUI
+    public interface IConsoleUI
     {
         void Clear();
         string GetInput();

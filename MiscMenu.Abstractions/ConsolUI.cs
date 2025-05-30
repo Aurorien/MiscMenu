@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace MiscMenu.Abstractions
+﻿namespace MiscMenu.Abstractions
 {
-    public class ConsolUI : IConsolUI
+    public class ConsoleUI : IConsoleUI
     {
         public void WriteLine(string message)
         {

@@ -1,15 +1,14 @@
 ﻿using MiscMenu.Abstractions;
 using MiscMenu.Helpers;
-using System;
 using System.Text;
 
 namespace MiscMenu.TextService
 {
     public class TextMethods
     {
-        private readonly IConsolUI _ui;
+        private readonly IConsoleUI _ui;
 
-        public TextMethods(IConsolUI ui)
+        public TextMethods(IConsoleUI ui)
         {
             this._ui = ui;
         }
@@ -22,7 +21,7 @@ namespace MiscMenu.TextService
 
             do
             {
-                string sentence = Utils.AskForString("\nSkriv in meingen på minst tre ord", _ui);
+                string sentence = Util.AskForString("\nSkriv in meingen på minst tre ord", _ui);
                 var words = sentence.Trim().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
                 if (words.Length < 3)
@@ -36,7 +35,7 @@ namespace MiscMenu.TextService
                 }
             } while (true);
 
-            UIHelpers.ReturnToMenu(_ui);
+            UIHelper.ReturnToMenu(_ui);
         }
 
         public void Repeat()
@@ -55,7 +54,7 @@ namespace MiscMenu.TextService
             }
 
             _ui.Write(sb.ToString());
-            UIHelpers.ReturnToMenu(_ui);
+            UIHelper.ReturnToMenu(_ui);
         }
     }
 }
