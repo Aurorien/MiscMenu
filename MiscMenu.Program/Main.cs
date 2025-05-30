@@ -20,7 +20,6 @@ namespace MiscMenu.Program
 
         public void Run()
         {
-            bool isValid = false;
             do
             {
                 _ui.Clear();
@@ -51,7 +50,7 @@ namespace MiscMenu.Program
                 }
 
             }
-            while (!isValid);
+            while (true);
         }
 
         private void ShowMainMenu()
